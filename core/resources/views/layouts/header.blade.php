@@ -12,6 +12,7 @@
       <link rel="stylesheet" href="{{asset('assets/css/default.css')}}">
       <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
       <link rel="stylesheet" href="{{asset('assets/css/plugin.css')}}">
+      <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
       <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
