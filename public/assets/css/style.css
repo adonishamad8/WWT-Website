@@ -1,0 +1,26 @@
+.slider-subtitle {
+    display: block;
+    font-family: 'Caveat', 'Comic Sans MS', cursive, sans-serif;
+    font-size: 24px;
+    font-style: italic;
+    color: #fff;
+    margin-bottom: 22px;
+    margin-top: 0;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.slider-title {
+    color: #fff;
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 0.2em;
+    text-shadow: 0 3px 24px rgba(0,0,0,0.4);
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+@media (max-width: 767px) {
+    .slider-title { font-size: 34px; }
+    .slider-subtitle { font-size: 16px; }
+}
