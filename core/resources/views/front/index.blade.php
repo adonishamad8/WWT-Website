@@ -11,11 +11,12 @@
                   <div class="swiper-slide">
                      <div class="slide-inner">
                         <div class="slide-image" style="background-image: url({{ $slider->getFirstMediaUrl('slider', 'thumb-large') }})"></div>
-                        <div class="swiper-content">
-                           <h1>{!! $slider->name !!}</h1>
-                           <p class="mar-bottom-30">{!! $slider->description !!}</p>
-                           <!--<a href="#" class="wt-btn">Explore More</a>-->
-                        </div>
+                           <div class="swiper-content">
+                              <span class="slider-subtitle">Get unforgettable pleasure with us</span>
+                              <h1 class="slider-title">{!! $slider->name !!}</h1>
+                              <p class="mar-bottom-30">{!! $slider->description !!}</p>
+                              <!--<a href="#" class="wt-btn">Explore More</a>-->
+                           </div>
                         <div class="overlay"></div>
                      </div>
                   </div>
