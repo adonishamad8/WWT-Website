@@ -4,6 +4,7 @@
 @section('keywords', '')
 @section('content')
 
+
 <!-- ===== HERO SLIDER SECTION START ===== -->
 <section class="banner">
    <div class="slider">
@@ -176,6 +177,29 @@
          <div class="col-lg-5 col-12">
             <div class="section-title title-full width100">
                <h2>Top <span>Reviews</span></h2>
+=======
+      <section class="banner">
+         <div class="slider">
+            <div class="swiper-container">
+               <div class="swiper-wrapper">
+				@foreach($sliders as $slider)
+                  <div class="swiper-slide">
+                     <div class="slide-inner">
+                        <div class="slide-image" style="background-image: url({{ $slider->getFirstMediaUrl('slider', 'thumb-large') }})"></div>
+                           <div class="swiper-content">
+                              <span class="slider-subtitle">Get unforgettable pleasure with us</span>
+                              <h1 class="slider-title">{!! $slider->name !!}</h1>
+                              <p class="mar-bottom-30">{!! $slider->description !!}</p>
+                              <!--<a href="#" class="wt-btn">Explore More</a>-->
+                           </div>
+                        <div class="overlay"></div>
+                     </div>
+                  </div>
+				@endforeach
+               </div>
+               <div class="swiper-button-next"></div>
+               <div class="swiper-button-prev"></div>
+>>>>>>> 75904080194025d986ca261afc30fa98c30e19ec
             </div>
          </div>
          <div class="col-lg-7 col-12">
