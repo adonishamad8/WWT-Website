@@ -15,3 +15,14 @@ yarn-error.log*
 .DS_Store
 .idea/
 .vscode/
+
+# Laravel app inside /core
+/core/vendor/
+/core/node_modules/
+/core/storage/*.key
+/core/storage/app/*
+/core/storage/framework/*
+/core/storage/logs/*
+!/core/storage/.gitignore
+/core/.env
+/core/.env.*.backup
