@@ -20,7 +20,7 @@ class HomeController extends Controller
 		$cats = Category::orderBy('order', 'ASC')->where('published', '1')->get();
 		$services = Service::where('published', '1')->limit(4)->get();
 		$packages = Package::orderBy('order', 'ASC')->where('featured', '1')->where('published', '1')->get();
-		$events = Event::orderBy('date', 'DESC')->limit(2)->where('published', '1')->get();
+$events = Event::orderBy('date', 'DESC')->where('published', '1')->limit(6)->get();
 		$reviews = Review::orderBy('order', 'ASC')->where('published', '1')->get();
 
         return view('front.index', ['sliders' => $sliders, 'categories' => $categories, 'cats' => $cats, 'services' => $services, 'packages' => $packages, 'events' => $events, 'reviews' => $reviews]);

@@ -1,0 +1,17 @@
+/vendor/
+/node_modules/
+/storage/*.key
+/storage/app/*
+/storage/framework/*
+/storage/logs/*
+!.gitignore
+/public/storage
+.env
+.env.*.backup
+.phpunit.result.cache
+composer.lock
+npm-debug.log*
+yarn-error.log*
+.DS_Store
+.idea/
+.vscode/
