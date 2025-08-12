@@ -26,3 +26,9 @@ yarn-error.log*
 !/core/storage/.gitignore
 /core/.env
 /core/.env.*.backup
+
+# Misc
+error_log
+*.zip
+*.tar
+*.tar.gz
