@@ -89,3 +89,14 @@ function resize_eb_slider() {
         jQuery('.slider').css('height', `${bodyheight}px`);
     }
 }
+// Fade WhatsApp button with the same threshold
+$(window).on('scroll', function () {
+  if ($(this).scrollTop() > 500) {
+    $('#whatsapp-button').fadeIn(200);
+  } else {
+    $('#whatsapp-button').fadeOut(200);
+  }
+});
+
+// Optional: small bounce on hover (no click handler; it's a normal link)
+

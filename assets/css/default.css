@@ -1812,30 +1812,16 @@ input#submit.wt-btn:hover {
         width: 30px;
     }
 }
-.news-card-items {
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 4px 32px rgba(64,181,230,0.04);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    min-height: 340px;
-    margin-bottom: 24px;
+.news-card-items{
+  background:#fff;border-radius:18px;box-shadow:0 4px 32px rgba(64,181,230,.04);
+  overflow:hidden;display:flex;flex-direction:column;height:100%;
 }
-.news-image img {
-    width: 100%;
-    min-height: 220px;
-    max-height: 220px;
-    object-fit: cover;
-    display: block;
-}
-.news-content {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+
+.news-image{position:relative;width:100%;padding-top:56.25%; /* 16:9 */ background:#f3f5f7;}
+.news-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+
+.news-content{flex:1 1 auto;display:flex;flex-direction:column;gap:6px}
+
 @media (max-width: 991px) {
     .news-image img { min-height: 140px; max-height: 140px; }
 }
@@ -2143,3 +2129,111 @@ ul.post-meta li { display: inline-block; margin-right: 14px; color: #6c757d; fon
     .custom-footer-bottom { flex-direction: column; gap:8px; }
 }
 
+.package-hover-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.category-image-link:hover .package-hover-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.package-hover-info .price {
+    font-weight: bold;
+}
+
+.package-hover-info .date {
+    font-style: italic;
+}
+/* Floating WhatsApp (bottom-left) */
+#whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;     /* bottom-left */
+  display: none;  /* JS will show after 500px */
+  z-index: 9999;  /* above back-to-top */
+  width: 56px;
+  height: 56px;
+}
+
+#whatsapp-button a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #25D366;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,.18);
+  transition: transform .2s ease-in-out;
+}
+
+#whatsapp-button a:hover { transform: scale(1.06); }
+
+/* Icon (Font Awesome Brands) */
+#whatsapp-button a:after {
+  content: "\f232"; /* WhatsApp */
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+  color: #fff;
+  font-size: 26px;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+/* --- Package header layout (prevents overlap) --- */
+.package-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  flex-wrap:wrap;
+  margin: 6px 0 14px;
+}
+
+.package-title{
+  margin:0;
+  flex:1 1 380px;     /* grows on wide screens, wraps on narrow */
+  line-height:1.25;
+}
+
+.package-meta{
+  text-align:right;
+  min-width:220px;    /* keeps price block stable on desktop */
+}
+
+.package-meta .price{
+  font-size:1.6rem;
+  font-weight:700;
+  line-height:1.1;
+}
+
+.package-meta .price .per{
+  font-weight:400;
+}
+
+.package-meta .duration{
+  margin-top:4px;
+  font-size:.95rem;
+  color:#666;
+}
+
+/* Stack neatly on mobile */
+@media (max-width: 768px){
+  .package-meta{
+    min-width:auto;
+    width:100%;
+    text-align:left;
+  }
+}

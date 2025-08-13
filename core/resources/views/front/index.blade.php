@@ -59,7 +59,7 @@
                 <div class="why-icon" >
                     <img src="https://kagensee.com/wp-content/uploads/2025/07/Untitled-design-78.png" alt="A Lot Of Discount" class="why-icon-img">
                 </div>
-                <h5 class="why-title">A Lot Of Discount</h5>
+                <h5 class="why-title">Global Partners</h5>
             </div>
             <div class="col-lg-3 col-md-6 col-6 mb-4 text-center">
                 <div class="why-icon" style="">
@@ -77,7 +77,7 @@
                 <div class="why-icon" style="">
                     <img src="https://kagensee.com/wp-content/uploads/2025/07/2-1.png" alt="Travel Management" class="why-icon-img">
                 </div>
-                <h5 class="why-title">Travel Management</h5>
+                <h5 class="why-title">Premium Solutions</h5>
             </div>
         </div>
     </div>
@@ -101,23 +101,43 @@
     <div class="swiper category-slider">
         <div class="swiper-wrapper">
             @foreach($packages as $package)
-            <div class="swiper-slide">
-                <div class="destination-category-item">
-                    <!-- Make image clickable -->
-                    <a href="{{ route('front.package.show', [$package->id, $package->slug]) }}" class="category-image-link" style="display:block;">
-                        <img src="{{ $package->getFirstMediaUrl('package', 'thumb-medium') }}" alt="{{ $package->name }}" style="width:100%;display:block;">
-                    </a>
-                    <div class="category-content text-center">
-                        <h5 style="margin-bottom: 14px; margin-top:10px;">
-                            <a href="{{ route('front.package.show', [$package->id, $package->slug]) }}" style="color:#16303b; text-decoration:none;">
-                                {{ $package->name }}
-                            </a>
-                        </h5>
-                        <a href="{{ route('front.package.show', [$package->id, $package->slug]) }}" class="wt-btn-black" style="margin-top:4px;">View Package</a>
-                    </div>
+<div class="swiper-slide">
+    <div class="destination-category-item">
+        <!-- Image with hover overlay -->
+        <a href="{{ route('front.package.show', [$package->id, $package->slug]) }}" 
+           class="category-image-link" 
+           style="display:block; position:relative; overflow:hidden;">
+           
+            <img src="{{ $package->getFirstMediaUrl('package', 'thumb-medium') }}" 
+                 alt="{{ $package->name }}" 
+                 style="width:100%; display:block;">
+
+            {{-- Price & date overlay --}}
+            @if(!empty($package->price) || !empty($package->date))
+                <div class="package-hover-info">
+                    @if(!empty($package->price))
+                        <span class="price">{{ e($package->price) }}</span>
+                    @endif
+                    @if(!empty($package->date))
+                        <span class="date">{{ e($package->date) }}</span>
+                    @endif
                 </div>
-            </div>
-            @endforeach
+            @endif
+        </a>
+
+        <div class="category-content text-center">
+            <h5 style="margin-bottom: 14px; margin-top:10px;">
+                <a href="{{ route('front.package.show', [$package->id, $package->slug]) }}" 
+                   style="color:#16303b; text-decoration:none;">
+                    {{ $package->name }}
+                </a>
+            </h5>
+            <a href="{{ route('front.package.show', [$package->id, $package->slug]) }}" 
+               class="wt-btn-black" style="margin-top:4px;">View Package</a>
+        </div>
+    </div>
+</div>
+@endforeach
         </div>
         </div>
         <div class="swiper-dot4 mt-5"></div>
@@ -150,30 +170,6 @@
    </div>
 </section>
 
-<section class="top-destinations destination1" style="padding: 150px 0;">
-   <div class="container">
-      <div class="section-title dest-title">
-         <h2 class="white">Popular Destinations</h2>
-      </div>
-      <div class="content">
-         <div class="row rental-slider">
-            @foreach($packages as $package)
-            <div class="col-lg-4">
-             <div class="td-item">
-                <div class="td-image">
-                   <img src="{{ $package->getFirstMediaUrl('package', 'thumb-medium') }}" alt="{!! $package->name !!}"/>
-                </div>
-                <div class="td-content text-center">
-                   <h3>{!! $package->name !!}</h3>
-                   <a href="{{ route('front.package.show', [$package->id, $package->slug]) }}" class="wt-btn">Book Now</a>
-                </div>
-             </div>
-             </div>
-            @endforeach
-         </div>
-      </div>
-   </div>
-</section>
 <br><br><br><br>
 <section class="news-section section-padding fix">
     <div class="container">
@@ -182,43 +178,48 @@
             <h2>Our Latest News & Articles</h2>
         </div>
 <div class="row">
-    @foreach($events as $index => $event)
-        @php
-            // Alternate: odd=image, even=text, so 1st=image, 2nd=text, 3rd=image, etc.
-            $cardType = ($index % 2 == 0) ? 'image' : 'text';
-        @endphp
+  @foreach($events as $event)
+    @php
+      $img = $event->getFirstMediaUrl('event', 'thumb-medium');
+    @endphp
 
-        <div class="col-xl-4 col-lg-6 col-md-6 d-flex mb-4">
-            <div class="news-card-items flex-fill" style="height: 100%;">
-                @if($cardType == 'image')
-                    <div class="news-image" style="height:270px;overflow:hidden;">
-                        <img src="{{ $event->getFirstMediaUrl('event', 'thumb-medium') }}" alt="{{ $event->name }}" style="width:100%;height:100%;object-fit:cover;">
-                    </div>
-                @else
-                    <div class="news-content" style="height:270px;display:flex;flex-direction:column;justify-content:center;">
-                        <ul class="post-meta" style="margin-bottom:10px;">
-                            <li>
-                                <i class="fa-regular fa-calendar-days"></i>
-                                {{ \Carbon\Carbon::parse($event->date)->format('F d, Y') }}
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-tag"></i>
-                                {{ $event->category ?? 'General' }}
-                            </li>
-                        </ul>
-                        <h3 style="margin-bottom:8px;">
-                            <a href="{{ route('front.event.show', [$event->id, $event->slug]) }}">
-                                {{ Str::limit($event->name, 60) }}
-                            </a>
-                        </h3>
-                        <a href="{{ route('front.event.show', [$event->id, $event->slug]) }}" class="link-btn">
-                            Read More <i class="fa-sharp fa-regular fa-arrow-right"></i>
-                        </a>
-                    </div>
-                @endif
-            </div>
+    <div class="col-xl-4 col-lg-6 col-md-6 d-flex mb-4">
+      <article class="news-card-items flex-fill">
+        {{-- Fixed-ratio image area (shows placeholder if no media) --}}
+        <div class="news-image">
+          @if(!empty($img))
+            <img src="{{ $img }}" alt="{{ $event->name }}">
+          @else
+            {{-- keep empty to preserve height; CSS gives a soft placeholder bg --}}
+          @endif
         </div>
-    @endforeach
+
+        {{-- Text/content area --}}
+        <div class="news-content" style="padding:16px;">
+          <ul class="post-meta" style="margin-bottom:10px;">
+            <li>
+              <i class="fa-regular fa-calendar-days"></i>
+              {{ \Carbon\Carbon::parse($event->date)->format('F d, Y') }}
+            </li>
+            <li>
+              <i class="fa-solid fa-tag"></i>
+              {{ $event->category ?? 'General' }}
+            </li>
+          </ul>
+
+          <h3 style="margin-bottom:8px;">
+            <a href="{{ route('front.event.show', [$event->id, $event->slug]) }}">
+              {{ \Illuminate\Support\Str::limit($event->name, 90) }}
+            </a>
+          </h3>
+
+          <a href="{{ route('front.event.show', [$event->id, $event->slug]) }}" class="link-btn">
+            Read More <i class="fa-sharp fa-regular fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+    </div>
+  @endforeach
 </div>
 
     </div>
@@ -261,7 +262,7 @@
                <div class="review-card">
                   <div class="review-stars">
                       @for($i = 0; $i < 5; $i++)
-                        <i class="fa fa-star{{ $i < 4 ? '' : '-o' }}" style="color:#FEB800;"></i>
+                        <i class="fa fa-star{{ $i < 5 ? '' : '-o' }}" style="color:#FEB800;"></i>
                       @endfor
                   </div>
                   <div class="review-text">
@@ -288,10 +289,17 @@
    
 
    </div>
-<img id="animated-bag"
-     class="swing-bag"
-     src="https://kagensee.com/wp-content/uploads/2025/07/bag.png"
-     style="position: absolute; bottom: 0; right: 2vw; width: 160px; z-index: 2; pointer-events: none;" alt="Bag">
+<a href="https://wa.me/96179119311" 
+   target="_blank" 
+   rel="noopener" 
+   style="position: absolute; bottom: 0; right: 2vw; z-index: 2; display: inline-block;">
+    <img id="animated-bag"
+         class="swing-bag"
+         src="https://kagensee.com/wp-content/uploads/2025/07/bag.png"
+         style="width: 160px;"
+         alt="Bag">
+</a>
+
 
 </section>
 

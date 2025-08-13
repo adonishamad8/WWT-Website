@@ -161,6 +161,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div id="back-to-top">
          <a href="#"></a>
       </div>
+      <!-- WhatsApp (same scroll-trigger as back-to-top) -->
+<div id="whatsapp-button">
+  <a href="https://wa.me/96179119311" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"></a>
+</div>
+
       </script><script src="{{asset('assets/js/jquery-3.3.1.min.js')}}"></script>
       <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
       <script src="{{asset('assets/js/plugin.js')}}"></script>

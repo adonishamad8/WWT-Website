@@ -23,18 +23,29 @@
             <div class="row">
                <div id="content" class="col-lg-8 col-12">
                   <div class="detail-content content-wrapper">
-                     <div class="detail-info">
-                        <div class="detail-info-content clearfix">
-                           <h4 class="mar-0"><i class="fas fa-map-marker-alt"></i> {!! $package->country !!}</h4>
-                           <h2>{!! $package->name !!}</h2>
-						   @if($package->price != NULL || $package->price != '')
-                           <h3 class="detail-price mar-0 text-right">{!! $package->price !!}<span> / pers</span></h3>
-						   @endif
-						   @if($package->date != NULL || $package->date != '')
-                           <h3 class="detail-price detail-date mar-0 text-right"><span><i class="fas fa-clock"></i> {!! $package->date !!}</span></h3>
-					       @endif
-                        </div>
-                     </div>
+<div class="detail-info">
+    <div class="detail-info-content clearfix">
+        <h4 class="mar-0"><i class="fas fa-map-marker-alt"></i> {!! $package->country !!}</h4>
+
+        <!-- NEW: title + price/date in a flex row -->
+        <div class="package-header">
+            <h2 class="package-title">{!! $package->name !!}</h2>
+
+            <div class="package-meta">
+                @if(!empty($package->price))
+                    <div class="price">${!! $package->price !!} <span class="per">/ Pers</span></div>
+                @endif
+
+                @if(!empty($package->date))
+                    <div class="duration">
+                        <i class="fas fa-clock"></i> {!! $package->date !!}
+                    </div>
+                @endif
+            </div>
+        </div>
+        <!-- /NEW -->
+    </div>
+</div>
                      <div class="gallery detail-box about-slider">
                         <div class="gallery-item">
 							<img src="{{ $package->getFirstMediaUrl('package', 'thumb-large') }}" width="100%" alt="{!! $package->name !!}"/>
