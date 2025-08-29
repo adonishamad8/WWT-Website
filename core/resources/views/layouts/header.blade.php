@@ -102,61 +102,249 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
          </div>
       </header>
 	@yield('content')
-  <footer style="background:#252525; color:#fff; font-family: 'Montserrat', sans-serif; font-Weight:400 !important;">
-    <div class="custom-footer-container">
-        <!-- Left block: Logo, Newsletter, Socials -->
-        <div class="footer-left">
-            <div class="footer-logo-wrap">
-                <img src="{{ asset('assets/images/logo.png') }}" alt="Worldwide Travel & Tourism" class="footer-logo" style="width:50%; height:auto; margin-bottom:12px;">
-                <div style="font-size:2.2rem; font-weight:400; margin-bottom:2px;">Worldwide</div>
-                <div style="font-size:1.1rem; color:#b1e2ef; margin-bottom:16px;">Travel & Tourism</div>
-            </div>
-            <div class="footer-newsletter-title" style="font-size:1.5rem; font-weight:400; margin-bottom:7px;">Subscribe Newsletter</div>
-            <div style="font-size:1rem; color:#eee; margin-bottom:12px;">Get Our Latest Deals and Update</div>
-            <form class="footer-newsletter-form" autocomplete="off" style="margin-bottom:18px;">
-                <input type="email" placeholder="Your Email Address" required style="width:100%;max-width:320px;padding:12px 18px;font-size:1.05rem;border-radius:25px;border:none;margin-bottom:10px;">
-                <button type="submit" style="background:#27b0d7;color:#fff;font-weight:400;border:none;border-radius:25px;padding:13px 0;width:100%;max-width:320px;font-size:1.1rem;display:block;transition:background 0.2s;">Subscribe &nbsp;→</button>
-            </form>
-            <div class="footer-socials" style="display:flex;gap:18px;">
-                <a href="https://facebook.com/worldwidetravelandtourism" target="_blank" style="background:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;"><i class="fab fa-facebook-f" style="color:#27b0d7;font-size:1.35rem;"></i></a>
-                <a href="https://instagram.com/worldwidetravelandtourism" target="_blank" style="background:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;"><i class="fab fa-instagram" style="color:#27b0d7;font-size:1.35rem;"></i></a>
-                <a href="https://linkedin.com/company/worldwide-travel-and-tourism/" target="_blank" style="background:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;"><i class="fab fa-linkedin-in" style="color:#27b0d7;font-size:1.35rem;"></i></a>
-            </div>
-        </div>
-        <!-- Middle block: Quick Links and Services -->
-        <div class="footer-mid">
-            <div class="footer-col">
-                <div class="footer-col-title">Quick Links</div>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="{{ route('front.about') }}">About Us</a></li>
-                    <li><a href="{{ route('front.blogs') }}">Blog</a></li>
-                    <li><a href="{{ route('front.services') }}">Services</a></li>
+<footer class="ww-footer">
+  <div class="custom-footer-container ww-footer-inner">
+    <!-- Left: brand + subscribe + socials -->
+    <div class="footer-left">
+      <div class="footer-logo-wrap">
+        <img src="{{ asset('assets/images/logo.png') }}" alt="Worldwide Travel & Tourism" class="footer-logo" style="width:185px;height:auto;">
+      </div>
 
-                </ul>
-            </div>
-            <div class="footer-col">
-                <div class="footer-col-title">Services</div>
-            <ul class="footer-contact-list">
-                <li><i class="fa fa-map-marker" style="color:#27b0d7; margin-right:7px;"></i> Ain El Mreisseh, Ibn Sina Str. MINA 365,
-5th Floor, Beirut – Lebanon</li>
-                <li><i class="fa fa-envelope" style="color:#27b0d7; margin-right:7px;"></i> info@worldwidetravel-lb.com</li>
-                <li><i class="fa fa-phone" style="color:#27b0d7; margin-right:7px;"></i> +961 1 366 505</li>
-            </ul>
-            </div>
-        </div>
-        <!-- Right block: Contact -->
-    
+      <a href="#" class="btn-subscribe">
+        Subscribe Now <span class="arr">→</span>
+      </a>
+
+      <div class="footer-socials ww-socials">
+        <a href="https://instagram.com/worldwidetravelandtourism" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/worldwidetravelandtourism" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://linkedin.com/company/worldwide-travel-and-tourism/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
     </div>
-    <div class="custom-footer-bottom">
-        <div class="custom-footer-copy">Copyright © {{ date('Y') }} <span style="color:#27b0d7;">Worldwide Travel & Tourism</span>. All Rights Reserved.</div>
-        <div class="custom-footer-links">
-            <a href="#" style="color:#fff;">Terms of use</a>
-            <span style="margin:0 7px;">|</span>
-            <a href="#" style="color:#fff;">Privacy Policy</a>
-        </div>
+
+    <!-- Middle: company -->
+    <div class="footer-mid">
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="{{ route('front.about') }}">About Us</a></li>
+          <li><a href="{{ route('front.mice') }}">MICE</a></li>
+          <li><a href="{{ route('front.package', [$categories->first()->id ?? 1, $categories->first()->slug ?? 'packages']) }}">Packages</a></li>
+          <li><a href="{{ route('front.events') }}">News</a></li>
+          <li><a href="{{ route('front.blogs') }}">Events</a></li>
+          <li><a href="{{ route('front.contact') }}">FAQ</a></li>
+        </ul>
+      </div>
     </div>
+
+    <!-- Right: locate & contact -->
+    <div class="footer-right">
+      <div class="footer-col-title">Locate & Contact us!</div>
+
+      <div class="addr-block">
+        Ain El Mreisseh, Ibn Sina Str. MINA 365,<br>
+        5th Floor, Beirut – Lebanon<br>
+        <a href="tel:+96121366285" class="phone-link">+961 21 366 285</a>
+      </div>
+
+      <div class="addr-block">
+        Clemenceau, Minet El-Hosn, Justinian<br>
+        Str. Justinian Building, Ground Floor,<br>
+        Beirut – Lebanon<br>
+        <a href="tel:+9611366505" class="phone-link">+961 1 366 505</a>
+      </div>
+
+      <div class="mail-row">
+        <i class="fa fa-envelope"></i>
+        <a href="mailto:info@worldwidetravel-lb.com">info@worldwidetravel-lb.com</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ww-divider"></div>
+
+  <div class="custom-footer-bottom ww-bottom">
+    <div class="custom-footer-copy">
+      Copyright © {{ date('Y') }} Worldwide Travel & Tourism. All Rights Reserved.
+    </div>
+    <div class="custom-footer-links">
+      <a href="#">Terms</a> | <a href="#">Privacy Policy</a>
+    </div>
+  </div>
 </footer>
+<style>
+    /* ===== FINAL FOOTER STYLE ===== */
+.ww-footer {
+  background: #1a1a1a !important;
+  color: #fff !important;
+  border-top-left-radius: 85px !important;
+  border-top-right-radius: 85px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 400 !important;
+  overflow: hidden;
+}
+
+/* Container */
+.ww-footer .custom-footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 40px 30px 20px;
+  gap: 40px;
+}
+
+/* --- LEFT COL --- */
+.ww-footer .footer-left {
+  flex: 1 1 300px;
+}
+.ww-footer .footer-logo {
+  width: 160px;
+  margin-bottom: 55px;
+  margin-left:85px;
+}
+.ww-footer .btn-subscribe {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #F3C23D;
+  color: #111 !important;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  transition: 0.2s;
+  margin-left:85px;
+  color: white !important;
+           border: 2px solid white  !important; /* Width, Style, Color */
+
+}
+.ww-footer .btn-subscribe:hover {
+  background: #e2b731;
+}
+
+/* Socials */
+.ww-footer .footer-socials {
+  display: flex;
+  gap: 16px;
+  margin-left:85px;
+}
+.ww-footer .footer-socials a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ww-footer .footer-socials a i {
+  color: #27b0d7;
+  font-size: 1.2rem;
+}
+
+/* --- MIDDLE COL --- */
+.ww-footer .footer-mid {
+  flex: 1 1 200px;
+}
+.ww-footer .footer-col-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  margin-top:50px;
+  
+}
+.ww-footer .footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ww-footer .footer-col ul li {
+  margin: 8px 0;
+}
+.ww-footer .footer-col ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.ww-footer .footer-col ul li a:hover {
+  color: #27b0d7;
+}
+
+/* --- RIGHT COL --- */
+.ww-footer .footer-right {
+  flex: 1 1 280px;
+}
+.ww-footer .addr-block {
+  color: #ddd;
+  font-weight: 400; /* ensure non-bold */
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.ww-footer .phone-link {
+  color: #27b0d7 !important;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 6px;
+}
+.ww-footer .mail-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.ww-footer .mail-row i {
+  color: #fff;
+}
+.ww-footer .mail-row a {
+  color: #ddd;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+/* --- DIVIDER + COPYRIGHT --- */
+.ww-footer .ww-divider {
+  background: rgba(255,255,255,0.3);
+  margin: 20px 0 12px;
+}
+.ww-footer .ww-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  padding: 0 30px 20px;
+}
+.ww-footer .custom-footer-links a {
+  color: #ddd;
+  margin-left: 10px;
+  text-decoration: none;
+  margin-top:10px !important;
+  margin-left:85px !important;
+}
+.ww-footer .custom-footer-links a:hover {
+  color: #27b0d7;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 900px) {
+  .ww-footer .custom-footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .ww-footer .ww-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+</style>
 
       <div id="back-to-top">
          <a href="#"></a>

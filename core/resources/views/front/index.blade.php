@@ -27,9 +27,9 @@
        <div class="swiper-content"
             style="position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); z-index:2; text-align:left;">
           <div class="container">
-              <span class="slider-subtitle" style="color:white">Get unforgettable pleasure with us</span>
+              <span class="slider-subtitle" style="color:white">{!! $slider->description !!}</span>
               <h1 class="slider-title">{!! $slider->name !!}</h1>
-              <p class="mar-bottom-30" style="color:#fff; font-size:22px; text-shadow:0 3px 20px rgba(0,0,0,0.7);">{!! $slider->description !!}</p>
+              <p class="mar-bottom-30" style="color:#fff; font-size:22px; text-shadow:0 3px 20px rgba(0,0,0,0.7);"></p>
               @if(isset($ctaLinks[$key]))
                 <a href="{{ $ctaLinks[$key] }}" class="wt-btn" style="margin-top:30px; font-size:18px; padding:14px 38px;">
                   {{ $ctaTitle }}
@@ -37,7 +37,7 @@
               @endif
           </div>
       </div>
-       <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:1;"></div>
+       <div class="overlay" style="position:absolute; top:0; left:0; width:100%; height:100%;  z-index:1;"></div>
     </div>
  </div>
 @endforeach
@@ -47,6 +47,57 @@
          <div class="swiper-button-prev"></div>
       </div>
    </div>
+   <style>
+       /* ===== HERO SWIPER: plain white arrows, no background ===== */
+
+/* 1) Swiper v8 variables (color + size) */
+.banner .swiper-container{
+  --swiper-navigation-color: #fff;   /* arrow color */
+  --swiper-theme-color: #fff;
+  --swiper-navigation-size: 42px;    /* arrow size */
+}
+
+/* 2) Strip any theme background/shape */
+.banner .swiper-button-next,
+.banner .swiper-button-prev{
+  background: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  z-index: 5;                        /* above the dark overlay */
+}
+
+/* some themes add circles via ::before — remove them */
+.banner .swiper-button-next::before,
+.banner .swiper-button-prev::before{
+  content: none !important;
+  display: none !important;
+}
+
+/* 3) Draw the chevrons explicitly (Swiper icon font) */
+.banner .swiper-button-next::after,
+.banner .swiper-button-prev::after{
+  font-family: swiper-icons !important; /* Swiper 6–10 */
+  font-size: var(--swiper-navigation-size) !important;
+  line-height: 1 !important;
+  color: #fff !important;
+  background: none !important;
+  text-shadow: 0 0 8px rgba(0,0,0,.45); /* optional readability */
+}
+
+/* tell each side which glyph to use */
+.banner .swiper-button-next::after{ content: 'next' !important; }
+.banner .swiper-button-prev::after{ content: 'prev' !important; }
+
+/* 4) Position tweaks */
+.banner .swiper-button-prev{ left: 16px !important; top: 50%; transform: translateY(-50%); }
+.banner .swiper-button-next{ right: 16px !important; top: 50%; transform: translateY(-50%); }
+
+   </style>
 </section>
 
 <!-- ===== HERO SLIDER SECTION END ===== -->
@@ -344,5 +395,6 @@
         </div>
     </div>
 </section>
+
 
 @endsection

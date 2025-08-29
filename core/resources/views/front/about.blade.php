@@ -323,6 +323,47 @@
     .why-about-inner {
         text-align:left !important;
     }}
+    /* === Board Members Section Fix === */
+.agent-main .row {
+  justify-content: center; /* center all cards in the row */
+  text-align: center;      /* center text */
+}
+
+.agent-list {
+  margin: 0 auto;          /* center each card in its column */
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* ensure image + content are centered */
+}
+
+.agent-image {
+  position: relative;
+  display: flex;
+  justify-content: center; /* center image horizontally */
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  max-width: 280px;        /* keeps consistent width */
+}
+
+.agent-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.agent-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  padding: 10px;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+}
+
            
       </style>
 
