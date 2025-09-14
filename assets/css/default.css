@@ -1818,12 +1818,12 @@ input#submit.wt-btn:hover {
 }
 
 .news-image{position:relative;width:100%;padding-top:56.25%; /* 16:9 */ background:#f3f5f7;}
-.news-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.news-image img{position:absolute;inset:0;width:100%;height:117%;object-fit:cover;display:block;}
 
 .news-content{flex:1 1 auto;display:flex;flex-direction:column;gap:6px}
 
 @media (max-width: 991px) {
-    .news-image img { min-height: 140px; max-height: 140px; }
+    .news-image img { min-height: 220px; max-height: 140px; }
 }
 
 .link-btn {

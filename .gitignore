@@ -32,3 +32,14 @@ error_log
 *.zip
 *.tar
 *.tar.gz
+.env
+/vendor/
+/node_modules/
+/storage/framework/
+/storage/logs/
+public/uploads/
+public/storage/
+
+# Ignore all SQL dumps except our backups folder
+*.sql
+!database/backups/*.sql
