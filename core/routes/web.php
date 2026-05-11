@@ -64,6 +64,11 @@ Route::get('/policies-compliance', function () {
     return view('front.policies-compliance');
 })->name('policies.compliance');
 
+// Whistle Blowing page
+Route::get('/whistle-blowing', function () {
+    return view('front.whistle-blowing');
+})->name('whistle-blowing');
+
 // ================================
 //  Admin routes
 // ================================
