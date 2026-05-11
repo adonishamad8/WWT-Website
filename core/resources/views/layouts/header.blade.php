@@ -92,6 +92,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                            </li>
                            <li class="{{ Route::currentRouteName() == 'front.events' ? 'active' : '' }} || {{ Route::currentRouteName() == 'front.event.show' ? 'active' : '' }}"><a href="{!! route('front.events') !!}">News</a></li>
                            <li class="{{ Route::currentRouteName() == 'front.blogs' ? 'active' : '' }} || {{ Route::currentRouteName() == 'front.blog.show' ? 'active' : '' }}"><a href="{!! route('front.blogs') !!}">Events</a></li>
+                                   <li><a href="https://worldwidetravel-lb.com/privacy">Policies</a></li>
+
                            <li class="{{ Route::currentRouteName() == 'front.contact' ? 'active' : '' }}"><a href="{!! route('front.contact') !!}">Contact Us</a></li>
                         </ul>
                      </div>
@@ -110,7 +112,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <img src="{{ asset('assets/images/logo.png') }}" alt="Worldwide Travel & Tourism" class="footer-logo" style="width:185px;height:auto;">
       </div>
 
-      <a href="#" class="btn-subscribe">
+      <a href="https://darkslategray-eland-801260.hostingersite.com/subscribe" class="btn-subscribe">
         Subscribe Now <span class="arr">→</span>
       </a>
 
@@ -138,7 +140,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <li><a href="{{ route('front.package', [$categories->first()->id ?? 1, $categories->first()->slug ?? 'packages']) }}">Packages</a></li>
           <li><a href="{{ route('front.events') }}">News</a></li>
           <li><a href="{{ route('front.blogs') }}">Events</a></li>
-          <li><a href="{{ route('front.contact') }}">FAQ</a></li>
+        <li><a href="https://worldwidetravel-lb.com/privacy">Policies</a></li>
+
         </ul>
       </div>
     </div>
@@ -174,14 +177,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       Copyright © {{ date('Y') }} Worldwide Travel & Tourism. All Rights Reserved.
     </div>
     <div class="custom-footer-links">
-      <a href="#">Terms</a> | <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a> | <a href="#">Privacy Policies</a>
     </div>
   </div>
 </footer>
 <style>
     /* ===== FINAL FOOTER STYLE ===== */
 .ww-footer {
-  background: #1a1a1a !important;
+  background: #1a1a1a6b !important;
   color: #fff !important;
   border-top-left-radius: 85px !important;
   border-top-right-radius: 85px !important;
@@ -233,7 +236,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .ww-footer .footer-socials {
   display: flex;
   gap: 16px;
-  margin-left:85px;
+  margin-left:95px;
 }
 .ww-footer .footer-socials a {
   width: 42px;

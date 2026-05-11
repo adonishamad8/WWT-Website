@@ -12,12 +12,12 @@
          <div class="swiper-wrapper">
             @php
                 $ctaLinks = [
-                  'https://worldwidetravel-lb.com/packages/2/where-to-travel',             // Slide 1
-                  'https://worldwidetravel-lb.com/packages/1/gem-of-the-middle-east',      // Slide 2
-                  'https://worldwidetravel-lb.com/packages/3/special-promotion',           // Slide 3
-                  'https://worldwidetravel-lb.com/packages/3/special-promotion',           // Slide 4
+                  'https://worldwidetravel-lb.com/contact',             // Slide 1
+                  'https://worldwidetravel-lb.com/contact',      // Slide 2
+                  'https://worldwidetravel-lb.com/contact',           // Slide 3
+                  'https://worldwidetravel-lb.com/contact',           // Slide 4
                 ];
-                $ctaTitle = 'Explore Packages';
+                $ctaTitle = 'Contact Us';
             @endphp
 
   @foreach($sliders as $key => $slider)
@@ -300,59 +300,172 @@
       </div>
    </div>
 </section>
+<link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+
+<style>
+/* Load Poppins (remove this line if you're already loading it globally) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Make the whole feedback section use Poppins */
+/* Make feedback section use Poppins but keep icons safe */
+.top-review,
+.top-review *:not(i.fa):not(i.fas):not(i.far):not(i.fab){
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+
+
+/* ===== Base styles ===== */
+.review-card:hover{box-shadow:0 8px 40px 0 rgba(56,181,230,0.14);}
+.swiper-button-next,.swiper-button-prev,.review-swiper-button-next,.review-swiper-button-prev{
+  background:none!important;border:none!important;outline:none!important;color:#38B5E6!important;font-size:2.2rem!important;}
+.review-swiper-pagination .swiper-pagination-bullet{
+  background:#38B5E6!important;opacity:.3;width:12px;height:12px;margin:0 5px!important;border-radius:50%;border:2px solid #38B5E6;}
+.review-swiper-pagination .swiper-pagination-bullet-active{
+  opacity:1;background:#38B5E6!important;width:28px;border-radius:20px;}
+/* ===== Layout & equal-height helpers ===== */
+.top-review.bg-grey{padding:60px 0 40px;}
+.review-swiper{overflow:visible;padding-bottom:80px;} /* extra room for nav + dots */
+.review-swiper .swiper-wrapper{align-items:stretch;}
+.review-swiper .swiper-slide{height:auto;}
+.review-card{
+  display:flex;flex-direction:column;height:100%;
+  background:#fff;border-radius:14px;padding:22px;border:1px solid #eef2f4;
+}
+.review-text{flex:1;overflow:visible;display:block;}
+.review-author{margin-top:auto;}
+.review-stars{margin-bottom:12px;}
+.quote-mark{line-height:1;}
+
+/* ===== Controls: NAV on row 1, DOTS on row 2 (always below) ===== */
+.review-controls{
+  position:absolute;left:0;right:0;bottom:0;margin:auto;
+  display:grid;grid-template-rows:auto auto;row-gap:12px; /* forces vertical order */
+  place-items:center;
+  width:100%;
+}
+.review-nav-center{
+  grid-row:1; /* top row */
+  display:flex;align-items:center;justify-content:center;max-width:520px;width:100%;
+}
+.review-nav-line{flex:1;height:1px;background:#e3e7e9;margin:0 16px;}
+.review-swiper-button-prev,.review-swiper-button-next{
+  background:none;border:none;color:#15b6e6;font-weight:500;font-size:14px;cursor:pointer;letter-spacing:1px;transition:color .2s;}
+.review-swiper-button-prev:hover,.review-swiper-button-next:hover{color:#127d9b;}
+.review-swiper-pagination{
+  grid-row:2; /* second row = under the nav */
+  position:static!important;
+  display:flex;justify-content:center;
+  max-width:520px;width:100%;
+  margin:0; /* make sure no top margins pull it above */
+}
+
+/* kill any previous flex-order rules if present */
+.review-controls[style]{flex-direction:unset!important;}
+.partner-carousel .partner-slide{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height: 110px; /* gives space for bigger logos */
+  }
+
+  
+
+  /* MOBILE: make logos bigger */
+  @media (max-width: 767px){
+    .partner-carousel .partner-slide{
+      height: 140px;
+      padding: 10px 0;
+    }
+
+    .partner-carousel .partner-slide img{
+      max-height: 110px;  /* <-- bigger on mobile */
+    }
+  }
+
+</style>
+
+
 <section class="top-review bg-grey" style="position:relative;">
-   <div class="container">
-      <div class="section-title text-center">
-         <span class="sub-title">Testimonial</span>
-         <h2>Our Clients Feedback</h2>
-      </div>
-      <div class="swiper review-swiper mt-5">
-         <div class="swiper-wrapper">
-            @foreach($reviews as $review)
-            <div class="swiper-slide">
-               <div class="review-card">
-                  <div class="review-stars">
-                      @for($i = 0; $i < 5; $i++)
-                        <i class="fa fa-star{{ $i < 5 ? '' : '-o' }}" style="color:#FEB800;"></i>
-                      @endfor
-                  </div>
-                  <div class="review-text">
-                     {!! $review->description !!}
-                  </div>
-                  <div class="review-author d-flex align-items-center mt-4">
-                     <div>
-                        <strong>{{ $review->name }}</strong>
-                        <div style="font-size:15px;color:#4b4b4b;">{{ $review->position }}</div>
-                     </div>
-                     <span class="quote-mark" style="color:#38B5E6;font-size:36px;margin-left:auto;">&#10077;</span>
-                  </div>
-               </div>
+  <div class="container">
+    <div class="section-title text-center">
+      <span class="sub-title">Testimonial</span>
+      <h2>Our Clients Feedback</h2>
+    </div>
+
+    <div class="swiper review-swiper mt-5">
+      <div class="swiper-wrapper">
+        @foreach($reviews as $review)
+        <div class="swiper-slide">
+          <div class="review-card">
+            <div class="review-stars">
+              @for($i=0;$i<5;$i++)
+                <i class="fa fa-star" style="color:#FEB800;"></i>
+              @endfor
             </div>
-            @endforeach
-         </div>
-         <div class="review-nav-center">
-  <button class="review-swiper-button-prev" style="font-size:20px !important;">PREVIEWS</button>
-  <div class="review-nav-line"></div>
-  <button class="review-swiper-button-next"style="font-size:20px !important;">NEXT</button>
-</div>
 
+            <div class="review-text">{!! $review->description !!}</div>
+
+            <div class="review-author d-flex align-items-center mt-4">
+              <div>
+                <strong>{{ $review->name }}</strong>
+                <div style="font-size:15px;color:#4b4b4b;">{{ $review->position }}</div>
+              </div>
+              <span class="quote-mark" style="color:#38B5E6;font-size:36px;margin-left:auto;">&#10077;</span>
+            </div>
+          </div>
+        </div>
+        @endforeach
       </div>
-   
 
-   </div>
-<a href="https://wa.me/96179119311" 
-   target="_blank" 
-   rel="noopener" 
-   style="position: absolute; bottom: 0; right: 2vw; z-index: 2; display: inline-block;">
-    <img id="animated-bag"
-         class="swing-bag"
-         src="https://kagensee.com/wp-content/uploads/2025/07/bag.png"
-         style="width: 160px;"
-         alt="Bag">
-</a>
-
-
+      <!-- Controls: NAV first, then DOTS under it -->
+      <div class="review-controls">
+        <div class="review-nav-center">
+          <button class="review-swiper-button-prev">PREVIOUS</button>
+          <div class="review-nav-line"></div>
+          <button class="review-swiper-button-next">NEXT</button>
+        </div>
+        <div class="review-swiper-pagination swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+<script>
+// debounce helper
+const debounce=(fn,wait)=>{let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),wait)}};
+
+// Equalize all cards to the tallest
+function equalizeReviewCardHeights(){
+  const cards=document.querySelectorAll('.review-card');
+  if(!cards.length) return;
+  let maxH=0;
+  cards.forEach(c=>c.style.height='auto');
+  cards.forEach(c=>maxH=Math.max(maxH,c.offsetHeight));
+  cards.forEach(c=>c.style.height=maxH+'px');
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  const swiper=new Swiper('.review-swiper',{
+    loop:false,
+    autoHeight:false,
+    speed:450,
+    spaceBetween:24,
+    slidesPerView:1,
+    breakpoints:{768:{slidesPerView:2,spaceBetween:24},1200:{slidesPerView:3,spaceBetween:28}},
+    navigation:{nextEl:'.review-swiper-button-next',prevEl:'.review-swiper-button-prev'},
+    pagination:{el:'.review-swiper-pagination',clickable:true,dynamicBullets:true},
+    on:{init(){equalizeReviewCardHeights();},imagesReady(){equalizeReviewCardHeights();},resize(){equalizeReviewCardHeights();}}
+  });
+
+  window.addEventListener('load',equalizeReviewCardHeights);
+  window.addEventListener('resize',debounce(equalizeReviewCardHeights,150));
+});
+</script>
+
+
 
 <section class="partners py-5" style="background:#fff;">
     <div class="container">
@@ -395,6 +508,51 @@
         </div>
     </div>
 </section>
+
+<script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+<script>
+// debounce
+const debounce=(fn,wait)=>{let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),wait)}};
+
+// equalize card heights
+function equalizeReviewCardHeights(){
+  const cards=document.querySelectorAll('.review-card');
+  if(!cards.length) return;
+  let maxH=0;
+  cards.forEach(c=>c.style.height='auto');
+  cards.forEach(c=>maxH=Math.max(maxH,c.offsetHeight));
+  cards.forEach(c=>c.style.height=maxH+'px');
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  const swiper=new Swiper('.review-swiper',{
+    loop:false,
+    autoHeight:false,
+    speed:450,
+    spaceBetween:24,
+    slidesPerView:1,
+    breakpoints:{768:{slidesPerView:2,spaceBetween:24},1200:{slidesPerView:3,spaceBetween:28}},
+    navigation:{nextEl:'.review-swiper-button-next',prevEl:'.review-swiper-button-prev'},
+    pagination:{el:'.review-swiper-pagination',clickable:true,dynamicBullets:true},
+    on:{init(){equalizeReviewCardHeights();},imagesReady(){equalizeReviewCardHeights();},resize(){equalizeReviewCardHeights();}}
+  });
+
+  window.addEventListener('load',equalizeReviewCardHeights);
+  window.addEventListener('resize',debounce(equalizeReviewCardHeights,150));
+
+  const wrapper=document.querySelector('.review-swiper .swiper-wrapper');
+  if(window.MutationObserver && wrapper){
+    new MutationObserver(debounce(equalizeReviewCardHeights,50))
+      .observe(wrapper,{childList:true,subtree:true,characterData:true});
+  }
+});
+</script>
+
+
+
+
+
+
 
 
 @endsection

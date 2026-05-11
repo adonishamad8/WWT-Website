@@ -153,8 +153,8 @@
             <div class="row display-flex">
                <div class="col-lg-6 col-12">
                   <div class="action-content">
-                     <h3 class="white package-name">SUMMER SPECIAL</h3>
-                     <h2 class="white">SPEND THE BEST VACTION WITH US <br /><!--<span>The nights of Thailand</span>--></h2>
+                     <h3 class="white package-name">SPEND THE BEST VACTION WITH US </h3>
+                     <h2 class="white"><br /><!--<span>The nights of Thailand</span>--></h2>
                      <a href="https://worldwidetravel-lb.com/packages/2/where-to-travel" class="wt-btn">View Details</a>
                   </div>
                </div>
