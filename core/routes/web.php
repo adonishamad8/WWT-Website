@@ -66,7 +66,8 @@ Route::get('/policies-compliance', function () {
 
 // Whistle Blowing page
 Route::get('/whistle-blowing', function () {
-    return view('front.whistle-blowing');
+    $categories = \App\Category::orderBy('order', 'ASC')->where('published', '1')->get();
+    return view('front.whistle-blowing', compact('categories'));
 })->name('whistle-blowing');
 
 // ================================
