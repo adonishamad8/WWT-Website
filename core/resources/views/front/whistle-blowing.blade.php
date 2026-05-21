@@ -10,6 +10,41 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.whistle-title {
+    font-family: 'Nunito', 'Poppins', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1f5fae;
+}
+
+.whistle-intro {
+    max-width: 850px;
+    margin: 0 auto 12px;
+    font-size: 20px;
+    color: #2c6fc5;
+    line-height: 1.8;
+    font-style: italic;
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.whistle-followup {
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #222;
+    line-height: 1.7;
+    font-family: 'Poppins', sans-serif;
+}
+
+.policy-note {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #d8e2f2;
+    font-size: 14px;
+    color: #274870;
+}
+
 html, body {
     height: 100%;
     overflow: auto;
@@ -74,12 +109,17 @@ html, body {
     <div class="container">
 
         <div class="mb-4 text-center" style="background: rgba(255,255,255,0.88); padding:18px; border-radius:12px; box-shadow: 0 0 15px rgba(0,0,0,0.06);">
-            <h1 style="font-size:32px; font-weight:800; margin-bottom:10px; color:#111;">
-                Whistle Blowing
-            </h1>
-            <p style="max-width:850px; margin:0 auto; font-size:16px; color:#333; line-height:1.6;">
-                You should directly raise your concerns by giving a call to the Internal Audit department at <strong>+961 1 366 505</strong> or by filling the below form. You may choose to reveal your identity or keep it anonymous, bearing in mind that in case your identity is known, you are officially protected. Please fill the below form with as much information and details as possible. This will help the investigators to focus on the main issue quickly.
+            <h1 class="whistle-title">Whistleblowing</h1>
+            <p class="whistle-intro">
+                Worldwide Travel and Tourism S.A.L. is committed to the highest standards of integrity, transparency, and ethical conduct. We encourage employees, partners, suppliers, and other stakeholders to come forward and voice any concerns related to misconduct, unethical behavior, or policy violations.
             </p>
+            <p class="whistle-followup">
+                Reports may be submitted confidentially through the form below, with the option of remaining anonymous. Whistleblowers who report in good faith are officially protected, and WWTT strictly prohibits any form of retaliation or adverse action against them.<br><br>
+                To help us review and address your concern effectively, please provide as much relevant information and detail as possible.
+            </p>
+            <div class="policy-note">
+                <strong>Whistleblowing Policy:</strong> The official policy document will be added here once the signed version is received.
+            </div>
         </div>
 
         <div class="contact-wrapper">
@@ -87,17 +127,16 @@ html, body {
                 <h2>Submit a Report</h2>
                 <form method="POST" class="ajax-form">
                     @csrf
-                    <div style="display:flex; gap:10px;">
-                        <input type="text" name="fname" placeholder="First Name (Optional)">
-                        <input type="text" name="lname" placeholder="Last Name (Optional)">
-                    </div>
+                    <input type="text" name="full_name" placeholder="Full Name (Optional)">
                     <div style="display:flex; gap:10px;">
                         <input type="email" name="email" placeholder="Email Address (Optional)">
-                        <input type="text" name="phone" placeholder="Phone (Optional)">
+                        <input type="text" name="phone" placeholder="Phone No. / Contact No. (Optional)">
                     </div>
 
+                    <input type="text" name="country" placeholder="Country (Optional)">
+
                     <select name="subject" required>
-                        <option value="" selected disabled>Select Subject</option>
+                        <option value="" selected disabled>Complaint Type</option>
                         <option value="Fraud or Corruption">Fraud or Corruption</option>
                         <option value="Harassment or Discrimination">Harassment or Discrimination</option>
                         <option value="Health and Safety Concerns">Health and Safety Concerns</option>
@@ -106,6 +145,11 @@ html, body {
                     </select>
 
                     <textarea name="message" placeholder="Your Message / Details of the Concern" required rows="6"></textarea>
+
+                    <div style="margin: 8px 0 14px;">
+                        <label for="attachment" style="font-size: 14px; font-weight: 600; color: #333; display: block; margin-bottom: 6px;">Upload Attachment</label>
+                        <input type="file" name="attachment" id="attachment" style="margin: 0;">
+                    </div>
                     
                     <div style="margin-bottom: 15px; font-size: 13px; color: #555;">
                         <label><input type="checkbox" name="anonymous" value="1" style="width: auto; margin-right: 5px;"> I wish to submit this report anonymously</label>
@@ -132,13 +176,14 @@ html, body {
     $("form.ajax-form").submit(function(e) {
         e.preventDefault();
 
-        var fname = $("input[name=fname]").val();
-        var lname = $("input[name=lname]").val();
+        var full_name = $("input[name=full_name]").val();
         var email = $("input[name=email]").val();
         var phone = $("input[name=phone]").val();
+        var country = $("input[name=country]").val();
         var subject = $("select[name=subject]").val();
         var message = $("textarea[name=message]").val();
         var anonymous = $("input[name=anonymous]").is(':checked') ? 1 : 0;
+        var attachment = $("input[name=attachment]")[0].files[0];
 
         if (!subject || !message) {
             $('#responsemsg').html('<span style="color: red;">Please select a subject and enter a message.</span>');
@@ -147,19 +192,26 @@ html, body {
 
         var token = $("input[name=_token]").val();
 
+        var formData = new FormData();
+        formData.append('_token', token);
+        formData.append('fname', anonymous ? 'Anonymous' : (full_name || 'Anonymous'));
+        formData.append('lname', anonymous ? 'User' : '-');
+        formData.append('email', anonymous ? 'anonymous@worldwidetravel-lb.com' : (email || 'anonymous@worldwidetravel-lb.com'));
+        formData.append('phone', anonymous ? 'N/A' : (phone || 'N/A'));
+        formData.append('subject', 'Whistleblowing: ' + subject);
+        formData.append('message', message + (country ? ('\nCountry: ' + country) : ''));
+
+        if (attachment) {
+            formData.append('attachment', attachment);
+        }
+
         $.ajax({
             type: 'POST',
             url: '{{ route('front.sendemail') }}',
             dataType: 'json',
-            data: { 
-                _token: token, 
-                fname: anonymous ? 'Anonymous' : (fname || 'Anonymous'), 
-                lname: anonymous ? 'User' : (lname || 'User'), 
-                email: anonymous ? 'anonymous@worldwidetravel-lb.com' : (email || 'anonymous@worldwidetravel-lb.com'), 
-                phone: anonymous ? 'N/A' : (phone || 'N/A'), 
-                subject: 'Whistle Blowing: ' + subject, 
-                message: message 
-            },
+            processData: false,
+            contentType: false,
+            data: formData,
             beforeSend: function() {
                 $('#responsemsg').html('<img id="ajaxloader" src="{{ asset("assets/images/loader.gif") }}" />');
             },
