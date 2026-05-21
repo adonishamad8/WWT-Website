@@ -45,6 +45,34 @@
     color: #274870;
 }
 
+.policy-details {
+    margin-top: 16px;
+    text-align: left;
+    background: #ffffff;
+    border: 1px solid #d9e6f7;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.policy-details h3 {
+    color: #1f5fae;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.policy-details h4 {
+    color: #2c6fc5;
+    margin: 14px 0 8px;
+    font-size: 17px;
+}
+
+.policy-details p,
+.policy-details li {
+    color: #223344;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
 html, body {
     height: 100%;
     overflow: auto;
@@ -118,7 +146,42 @@ html, body {
                 To help us review and address your concern effectively, please provide as much relevant information and detail as possible.
             </p>
             <div class="policy-note">
-                <strong>Whistleblowing Policy:</strong> The official policy document will be added here once the signed version is received.
+                <strong>Whistleblowing Policy:</strong> The signed WWTT Whistleblowing Governance Policy is now in effect.
+            </div>
+
+            <div class="policy-details">
+                <h3>WWTT Whistleblowing Governance Policy</h3>
+                <p><strong>Policy No.:</strong> WBGP-001 &nbsp;|&nbsp; <strong>Issue Date:</strong> April 2026 &nbsp;|&nbsp; <strong>Review Date:</strong> March 2027 &nbsp;|&nbsp; <strong>Version:</strong> 1.0</p>
+
+                <h4>Purpose and Scope</h4>
+                <p>
+                    This framework defines the governance rules for WWTT’s whistleblowing reporting channel, ensuring confidentiality,
+                    independence, and proper handling of reports in line with recognized compliance standards.
+                </p>
+
+                <h4>Designated Persons and Access Control</h4>
+                <ul>
+                    <li>Only designated persons may receive, review, and investigate reports: the Integrity Officer, the Advisor to the Board, and the External Legal Counsel.</li>
+                    <li>No other person within WWTT is authorized to access, read, or intervene in whistleblowing reports.</li>
+                </ul>
+
+                <h4>Confidentiality and Protection</h4>
+                <ul>
+                    <li>All reports are treated as strictly confidential.</li>
+                    <li>Any unauthorized disclosure, access, interference, retaliation, or obstruction is prohibited and may lead to disciplinary and/or legal action.</li>
+                </ul>
+
+                <h4>Oversight and Independence</h4>
+                <ul>
+                    <li>The Board of Directors retains administrative oversight only for operational continuity and governance supervision.</li>
+                    <li>This oversight does not permit access to report content and must not interfere with the independence of designated persons.</li>
+                </ul>
+
+                <h4>Exceptional Access Credentials</h4>
+                <ul>
+                    <li>Primary access credentials are held exclusively by designated persons responsible for handling reports.</li>
+                    <li>Exceptional contingency access is tightly restricted, documented, and may only be used for technical continuity—never for reading report content.</li>
+                </ul>
             </div>
         </div>
 
