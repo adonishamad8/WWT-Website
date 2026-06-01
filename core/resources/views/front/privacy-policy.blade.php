@@ -265,6 +265,7 @@
                 <h3>Policy Index</h3>
                 <ul class="policies-menu">
                     <li><a href="#anti-corruption">Anti-Corruption &amp; Ethics</a></li>
+                    <li><a href="#whistleblowing">Whistleblowing Policy</a></li>
                     <li><a href="#environmental">Environmental Policy</a></li>
                     <li><a href="#equal-opportunities">Equal Opportunities</a></li>
                     <li><a href="#gender-equality">Gender Equality</a></li>
@@ -318,7 +319,43 @@
                     </div>
                 </div>
 
-                <!-- 2. Environmental Policy -->
+                <!-- 2. Whistleblowing Policy -->
+                <div id="whistleblowing" class="policy-card">
+
+                    <div class="policy-title-row">
+                        <img
+                            src="{{ asset('assets/images/Anti-corruption.png') }}"
+                            alt="Ethics and compliance"
+                            class="policy-header-logo"
+                            loading="lazy"
+                        >
+                        <h2>Whistleblowing Policy</h2>
+                    </div>
+
+                    <div class="policy-meta">
+                        In alignment with UN Global Compact integrity expectations, ethical reporting standards &amp; non-retaliation principles.
+                    </div>
+                    <p>
+                        WWTT provides confidential reporting channels for employees, partners, suppliers, and stakeholders
+                        to raise good-faith concerns about suspected misconduct, corruption, fraud, harassment, safety
+                        risks, conflicts of interest, or other policy breaches. The Whistleblowing Policy reinforces
+                        accountability, prompt review, and protection from retaliation.
+                    </p>
+                    <ul>
+                        <li>Encourages responsible reporting of suspected misconduct or unethical behaviour.</li>
+                        <li>Protects whistleblowers who raise concerns in good faith from retaliation.</li>
+                        <li>Defines confidential review, escalation, and investigation procedures.</li>
+                        <li>Supports WWTT’s wider ethics, anti-corruption, and compliance framework.</li>
+                    </ul>
+                    <div class="policy-btn-row">
+                        <a href="{{ asset('assets/policies/WWTT_Whistleblowing_Policy_UNGC_ 2026.pdf') }}"
+                           class="policy-btn policy-btn-primary" target="_blank">
+                            View full Whistleblowing Policy (PDF)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. Environmental Policy -->
                 <div id="environmental" class="policy-card">
 
 <div class="policy-title-row">
@@ -357,7 +394,7 @@
                     </div>
                 </div>
 
-                <!-- 3. Equal Opportunities Policy -->
+                <!-- 4. Equal Opportunities Policy -->
                 <div id="equal-opportunities" class="policy-card">
 
 <div class="policy-title-row">
@@ -394,7 +431,7 @@
                     </div>
                 </div>
 
-                <!-- 4. Gender Equality Policy -->
+                <!-- 5. Gender Equality Policy -->
                 <div id="gender-equality" class="policy-card">
 
 <div class="policy-title-row">
@@ -432,7 +469,7 @@
                     </div>
                 </div>
 
-                <!-- 5. Labour Standards Policy -->
+                <!-- 6. Labour Standards Policy -->
                 <div id="labour-standards" class="policy-card">
 
 <div class="policy-title-row">
@@ -469,7 +506,7 @@ class="policy-btn policy-btn-primary" target="_blank">
                     </div>
                 </div>
 
-                <!-- 6. Sustainability Policy -->
+                <!-- 7. Sustainability Policy -->
                 <div id="sustainability" class="policy-card">
 
 <div class="policy-title-row">
@@ -507,7 +544,7 @@ class="policy-btn policy-btn-primary" target="_blank">
                     </div>
                 </div>
 
-                <!-- 7. Training & Development Policy -->
+                <!-- 8. Training & Development Policy -->
                 <div id="training-development" class="policy-card">
 
 <div class="policy-title-row">
@@ -544,7 +581,7 @@ class="policy-btn policy-btn-primary" target="_blank">
                     </div>
                 </div>
 
-                <!-- 8. Work Health & Safety Policy -->
+                <!-- 9. Work Health & Safety Policy -->
                 <div id="work-health-safety" class="policy-card">
 
 <div class="policy-title-row">
