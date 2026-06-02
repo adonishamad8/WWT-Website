@@ -192,12 +192,6 @@ footer {
                     Ain El Mreisseh, Ibn Sina Str. Le 77, 1st Floor, Beirut – Lebanon
                 </p>
                 <p><a href="tel:+9611365931">+961 1 365 931</a></p>
-                <hr>
-
-                <p><strong>Ain El Mreisseh (MINA 365)</strong><br>
-                    Ain El Mreisseh, Ibn Sina Str. MINA 365, 5th Floor, Beirut – Lebanon
-                </p>
-                <p><a href="tel:+96121366285">+961 21 366 285</a></p>
 
                 <p><a href="mailto:info@worldwidetravel-lb.com">info@worldwidetravel-lb.com</a></p>
 
