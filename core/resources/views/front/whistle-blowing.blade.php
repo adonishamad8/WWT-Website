@@ -118,7 +118,7 @@ html, body {
                 To help us review and address your concern effectively, please provide as much relevant information and detail as possible.
             </p>
             <div class="policy-note">
-                <strong>Whistleblowing Policy:</strong> The signed WWTT Whistleblowing Governance <a href="{{ route('privacy.policy') }}">Policy</a> is now in effect.
+                <a href="https://worldwidetravel-lb.com/privacy#whistleblowing"><strong>Whistleblowing Policy:</strong></a> The signed WWTT Whistleblowing Governance Policy is now in effect.
             </div>
         </div>
 
@@ -127,13 +127,13 @@ html, body {
                 <h2>Submit a Report</h2>
                 <form method="POST" class="ajax-form">
                     @csrf
-                    <input type="text" name="full_name" placeholder="Full Name (Optional)">
+                    <input type="text" name="full_name" placeholder="Full Name">
                     <div style="display:flex; gap:10px;">
-                        <input type="email" name="email" placeholder="Email Address (Optional)">
-                        <input type="text" name="phone" placeholder="Phone No. / Contact No. (Optional)">
+                        <input type="email" name="email" placeholder="Email Address">
+                        <input type="text" name="phone" placeholder="Phone No. / Contact No.">
                     </div>
 
-                    <input type="text" name="country" placeholder="Country (Optional)">
+                    <input type="text" name="country" placeholder="Country">
 
                     <select name="subject" required>
                         <option value="" selected disabled>Complaint Type</option>
