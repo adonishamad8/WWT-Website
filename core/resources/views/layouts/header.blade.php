@@ -151,9 +151,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="footer-col-title">Locate & Contact us!</div>
 
       <div class="addr-block">
-        Ain El Mreisseh, Ibn Sina Str. MINA 365,<br>
-        5th Floor, Beirut – Lebanon<br>
-        <a href="tel:+96121366285" class="phone-link">+961 21 366 285</a>
+        Ain El Mreisseh, Ibn Sina Str. Le 77 Bldg.,<br>
+        1st Floor, Beirut – Lebanon<br>
+        <a href="tel:+9611365931" class="phone-link">+961 1 365 931</a>
       </div>
 
       <div class="addr-block">
