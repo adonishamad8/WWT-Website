@@ -140,7 +140,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <li><a href="{{ route('front.package', [$categories->first()->id ?? 1, $categories->first()->slug ?? 'packages']) }}">Packages</a></li>
           <li><a href="{{ route('front.events') }}">News</a></li>
           <li><a href="{{ route('front.blogs') }}">Events</a></li>
-        <li><a href="https://worldwidetravel-lb.com/privacy">Policies</a></li>
+          <li><a href="https://worldwidetravel-lb.com/privacy">Policies</a></li>
+          <li><a href="{{ route('whistle-blowing') }}">Whistle Blowing</a></li>
 
         </ul>
       </div>
